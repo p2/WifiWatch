@@ -6,7 +6,7 @@ Two example scripts, connecting and disconnecting from VPN configurations respec
 
 This app is built to be added to your startup items and just keep running in the background.
 The icon will **not** show up in the Dock, use _Activity Montior_ to shut it down if needed.
-A build & signed binary is available [in the releases](https://github.com/p2/WifiWatch/releases).
+A prebuilt & signed app binary is available [in the releases](https://github.com/p2/WifiWatch/releases).
 
 
 ## Scripts
