@@ -1,0 +1,13 @@
+.DS_Store
+
+# build directories
+build/*
+ 
+# Xcode user data
+**.pbxuser
+**.mode?v?
+**.perspectivev?
+**.xccheckout
+**.xcscmblueprint
+xcuserdata
+

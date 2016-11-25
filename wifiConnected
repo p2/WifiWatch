@@ -1,0 +1,15 @@
+#!/bin/bash
+# arg1: SSID of network
+# arg2: SSID of old network, if any
+
+VPN="Uni VPN"
+SSID="uni-wifi"
+
+if [[ $SSID == $1 ]]; then
+	connected=$(test -z `scutil --nc status "$VPN" | grep Connected` && echo 0 || echo 1)
+	if [ $connected = 0 ]; then
+		sleep 5
+		echo "Connecting to $VPN..."
+		scutil --nc start "$VPN"
+	fi
+fi
