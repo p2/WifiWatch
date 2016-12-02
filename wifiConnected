@@ -6,10 +6,16 @@ VPN="Uni VPN"
 SSID="uni-wifi"
 
 if [[ $SSID == $1 ]]; then
-	connected=$(test -z `scutil --nc status "$VPN" | grep Connected` && echo 0 || echo 1)
-	if [ $connected = 0 ]; then
-		sleep 5
-		echo "Connecting to $VPN..."
-		scutil --nc start "$VPN"
-	fi
+	
+	# if connected to $SSID, try several times to connect $VPN
+	for i in 2 2 2 5 5; do
+		connected=$(test -z `scutil --nc status "$VPN" | grep Connected` && echo 0 || echo 1)
+		if [ $connected = 0 ]; then
+			sleep $i
+			echo "Connecting to $VPN..."
+			scutil --nc start "$VPN"
+		else
+			break
+		fi
+	done
 fi
